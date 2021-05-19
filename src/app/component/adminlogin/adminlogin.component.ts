@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import { AdminserviceService } from '../../service/adminservice/adminservice.service'
 
 @Component({
   selector: 'app-adminlogin',
@@ -10,7 +11,7 @@ export class AdminloginComponent implements OnInit {
 
   hide = true;
 
-  constructor() { }
+  constructor( private admin : AdminserviceService) { }
 
   ngOnInit(): void {
   }
@@ -37,6 +38,12 @@ export class AdminloginComponent implements OnInit {
       }
 
       console.log(reqObj);
+
+      this.admin.login(reqObj).subscribe((res) =>{
+        console.log(res);
+      },(error) =>{
+        console.log(error);
+      })
     }
   }
 
