@@ -23,7 +23,7 @@
     top: 146px;
     left: 172px;
     width: 233px;
-    height: 172px;
+    height: 135px;
     background: #F5F5F5 0% 0% no-repeat padding-box;
     border-radius: 2px 2px 0px 0px;
     opacity: 1;
@@ -32,8 +32,8 @@
 .bookImg{
     top: 163px;
     left: 239px;
-    width: 105px;
-    height: 135px;
+    width: 100px;
+    height: 110px;
     background: transparent 0% 0% no-repeat padding-box;
     opacity: 1;
 }
