@@ -16,6 +16,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { DisplayComponent } from './component/display/display.component';
+import { AddBookComponent } from './component/add-book/add-book.component';
+import { UpdateBookComponent } from './component/update-book/update-book.component';
+import { DeleteBookComponent } from './component/delete-book/delete-book.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,11 @@ import { FooterComponent } from './component/footer/footer.component';
     AdminloginComponent,
     AdminDashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DisplayComponent,
+    AddBookComponent,
+    UpdateBookComponent,
+    DeleteBookComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +46,8 @@ import { FooterComponent } from './component/footer/footer.component';
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
 ],
   providers: [],
   bootstrap: [AppComponent]
