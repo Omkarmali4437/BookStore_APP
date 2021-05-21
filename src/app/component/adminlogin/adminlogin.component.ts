@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import { AdminserviceService } from '../../service/adminservice/adminservice.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-adminlogin',
@@ -11,7 +12,7 @@ export class AdminloginComponent implements OnInit {
 
   hide = true;
 
-  constructor( private admin : AdminserviceService) { }
+  constructor( private admin : AdminserviceService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,14 +34,19 @@ export class AdminloginComponent implements OnInit {
   submit(){
     if(this.email.valid && this.password.valid){
       let reqObj = {
-        email : "bookstore@admin.com",
-        password : "Xyz@123"
+        email : this.email.value,
+        password : this.password.value
       }
 
+      let arr = [] as any;
       console.log(reqObj);
 
       this.admin.login(reqObj).subscribe((res) =>{
         console.log(res);
+        arr = res;
+        console.log(arr.result.accessToken);
+        localStorage.setItem('access',arr.result.accessToken);
+        this.router.navigate(['/dashboard']);
       },(error) =>{
         console.log(error);
       })
