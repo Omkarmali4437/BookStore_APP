@@ -21,6 +21,8 @@ import { AddBookComponent } from './component/add-book/add-book.component';
 import { UpdateBookComponent } from './component/update-book/update-book.component';
 import { DeleteBookComponent } from './component/delete-book/delete-book.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogComponent } from './component/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {MatCardModule} from '@angular/material/card';
     DisplayComponent,
     AddBookComponent,
     UpdateBookComponent,
-    DeleteBookComponent
+    DeleteBookComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
 ],
   providers: [],
   bootstrap: [AppComponent]
