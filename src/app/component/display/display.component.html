@@ -1,11 +1,11 @@
-<div (deleteEvent)="updatePage($event)" class="main-container"  fxLayout="column" fxLayoutAlign="center center">
+<div class="main-container"  fxLayout="column" fxLayoutAlign="center center">
     <div class="container" fxLayout="column">
         <div class="head-container" fxLayout="row" fxLayoutAlign="space-between center">
             <h2>Books</h2>
             <app-add-book></app-add-book>
         </div>
         <div  fxLayout="row wrap" fxLayoutAlign="space-evenly center" >
-            <div *ngFor='let book of  bookArray' class="content-card">
+            <div (deleteEvent)="updatePage($event)" *ngFor='let book of  bookArray' class="content-card">
                 <div class="imgCls" fxLayout="column" fxLayoutAlign="center center">
                     <img src="../.../../../../assets/bookimage/Image 11@2x.png" class="bookImg" alt=""> 
                 </div>

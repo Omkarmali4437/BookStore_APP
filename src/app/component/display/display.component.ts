@@ -18,10 +18,7 @@ export class DisplayComponent implements OnInit {
   }
 
   updatePage($event){
-    if($event == this.message){
-      console.log(this.message);
-      this.getAllBooks();
-    }
+    this.getAllBooks();
   }
 
   getAllBooks(){
