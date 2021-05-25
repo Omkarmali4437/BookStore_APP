@@ -23,6 +23,9 @@ import { DeleteBookComponent } from './component/delete-book/delete-book.compone
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './component/dialog/dialog.component';
+import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
+import { UserDisplayComponent } from './component/user-display/user-display.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { DialogComponent } from './component/dialog/dialog.component';
     AddBookComponent,
     UpdateBookComponent,
     DeleteBookComponent,
-    DialogComponent
+    DialogComponent,
+    UserDashboardComponent,
+    UserDisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,8 @@ import { DialogComponent } from './component/dialog/dialog.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule
 ],
   providers: [],
   bootstrap: [AppComponent]
