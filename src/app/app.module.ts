@@ -26,6 +26,7 @@ import { DialogComponent } from './component/dialog/dialog.component';
 import { UserDashboardComponent } from './component/user-dashboard/user-dashboard.component';
 import { UserDisplayComponent } from './component/user-display/user-display.component';
 import {MatSelectModule} from '@angular/material/select';
+import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
     DeleteBookComponent,
     DialogComponent,
     UserDashboardComponent,
-    UserDisplayComponent
+    UserDisplayComponent,
+    OrderPlacedComponent
   ],
   imports: [
     BrowserModule,
