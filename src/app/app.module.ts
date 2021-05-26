@@ -28,6 +28,8 @@ import { UserDisplayComponent } from './component/user-display/user-display.comp
 import {MatSelectModule} from '@angular/material/select';
 import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
 import { CartComponent } from './component/cart/cart.component';
+import { UserSignUpLoginComponent } from './component/user-sign-up-login/user-sign-up-login.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { CartComponent } from './component/cart/cart.component';
     UserDashboardComponent,
     UserDisplayComponent,
     OrderPlacedComponent,
-    CartComponent
+    CartComponent,
+    UserSignUpLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { CartComponent } from './component/cart/cart.component';
     HttpClientModule,
     MatCardModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTabsModule
 ],
   providers: [],
   bootstrap: [AppComponent]
