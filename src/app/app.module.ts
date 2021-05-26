@@ -27,6 +27,7 @@ import { UserDashboardComponent } from './component/user-dashboard/user-dashboar
 import { UserDisplayComponent } from './component/user-display/user-display.component';
 import {MatSelectModule} from '@angular/material/select';
 import { OrderPlacedComponent } from './component/order-placed/order-placed.component';
+import { CartComponent } from './component/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { OrderPlacedComponent } from './component/order-placed/order-placed.comp
     DialogComponent,
     UserDashboardComponent,
     UserDisplayComponent,
-    OrderPlacedComponent
+    OrderPlacedComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
