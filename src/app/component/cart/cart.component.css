@@ -1,5 +1,4 @@
 .maincontaintentItem{
-    /* background : rgb(223, 72, 72); */
     width: 100%;      
 } 
 .place{
@@ -11,7 +10,6 @@
     margin-bottom: 2%;
 }
 .cardbox{
-    /* border: 1px solid gray; */
     margin-top: 1%;
     width :18%;
     margin-left: 3%;
@@ -48,6 +46,6 @@
     margin-bottom: 2%;
     margin-right: 2%;
 }
-.sumit{
+.text{
     margin-left: 3%;
 }
