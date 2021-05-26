@@ -1,24 +1,29 @@
 <app-header></app-header>
-<div class="maincontaintentItem">
+<div class="containtner">
     <div class="place">
         <div class="cardbox" fxLayoutAlign="start center">
             My card(2)
         </div>
         <div fxLayout="row wrap">
-        <div class="book">
-            <img class="img1" src="../../../assets/bookimage/Image 11@2x.png">
-        </div>
-        <div class="detail" fxLayout="column wrap">
-        <span class="line1"> Dont Me Make Think</span><br>
-        <span class="line2"> by steve krug </span><br>
-        <span class="line1"> Rs.1500</span>
-        </div>
+            <div class="book">
+                <img class="img1" src="../../../assets/bookimage/Image 11@2x.png">
+            </div>
+            <div class="detail" fxLayout="column wrap">
+                <span class="line1"> Dont Me Make Think</span><br>
+                <span class="line2"> by steve krug </span><br>
+                <span class="line1"> Rs.1500</span>
+            </div>
         </div>
         <div class="placebutton" fxLayout="row wrap" fxLayoutAlign="end end">
-            <button mat-raised-button color="primary">PLACE ORDER</button>
+            <button mat-raised-button color="primary" (click)="display(1)">PLACE ORDER</button>
         </div>
     </div>
-    <div class="place">
+    <div *ngIf='show == 1' class="undisplayed" fxLayoutAlign="start center">
+        <span class="detaillabel" fxFlexOffset="5">
+            Customer Details
+        </span>
+    </div>
+    <div class="place" *ngIf='show == 2'>
         <div class="cardbox" fxLayoutAlign="start center">
             Customer Details
         </div>
@@ -27,63 +32,66 @@
                 <mat-form-field>
                     <mat-label> Name </mat-label>
                     <input matInput type="text" placeholder="Enter Name" matInput required />
-                </mat-form-field> 
+                </mat-form-field>
                 <mat-form-field>
                     <mat-label>Phone number</mat-label>
                     <input matInput type="number" placeholder="Enter PhoneNumber" matInput required />
-                </mat-form-field>     
+                </mat-form-field>
             </div>
             <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
                 <mat-form-field>
                     <mat-label> Pincode </mat-label>
                     <input matInput type="number" placeholder="Enter Pincode" matInput required />
-                </mat-form-field> 
+                </mat-form-field>
                 <mat-form-field>
                     <mat-label> Locality </mat-label>
                     <input matInput type="text" placeholder="Enter Locality" matInput required />
-                </mat-form-field> 
+                </mat-form-field>
             </div>
             <div class="text" fxLayout="row wrap">
                 <mat-form-field>
                     <mat-label> Address </mat-label>
                     <input matInput type="text" placeholder="Enter Address" matInput required />
-                </mat-form-field>  
+                </mat-form-field>
             </div>
             <div class="text" fxLayout="row wrap" fxLayoutGap="20px">
                 <mat-form-field>
                     <mat-label> City </mat-label>
                     <input matInput type="text" placeholder="Enter city" matInput required />
-                </mat-form-field> 
+                </mat-form-field>
                 <mat-form-field>
                     <mat-label> LandMark </mat-label>
                     <input matInput type="text" placeholder="Enter LandMark" matInput required />
-                </mat-form-field> 
+                </mat-form-field>
             </div>
         </div>
         <div class="placebutton" fxLayout="row wrap" fxLayoutAlign="end end">
-            <button mat-raised-button color="primary"> CONTINUE </button>
+            <button mat-raised-button color="primary" (click)="displaynext()"> CONTINUE </button>
         </div>
     </div>
-    <div class="place">
+    <div *ngIf='show2 == 1' class="summary" fxLayoutAlign="start center">
+        <span class="detaillabel" fxFlexOffset="5">
+            Order Summary
+        </span>
+    </div>
+    <div class="place" *ngIf='show1 == 2'>
         <div class="cardbox" fxLayoutAlign="start center">
             Order Summery
         </div>
         <div fxLayout="row wrap">
-        <div class="book">
-            <img class="img1" src="../../../assets/bookimage/Image 11@2x.png">
-        </div>
-        <div class="detail" fxLayout="column wrap">
-        <span class="line1"> Dont Me Make Think</span><br>
-        <span class="line2"> by steve krug </span><br>
-        <span class="line1"> Rs.1500</span>
-        </div>
+            <div class="book">
+                <img class="img1" src="../../../assets/bookimage/Image 11@2x.png">
+            </div>
+            <div class="detail" fxLayout="column wrap">
+                <span class="line1"> Dont Me Make Think</span><br>
+                <span class="line2"> by steve krug </span><br>
+                <span class="line1"> Rs.1500</span>
+            </div>
         </div>
         <div class="placebutton" fxLayout="row wrap" fxLayoutAlign="end end">
             <button mat-raised-button color="primary"> CHECKOUT </button>
         </div>
     </div>
-   
+
 </div>
 <app-footer></app-footer>
-
-
