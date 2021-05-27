@@ -18,7 +18,7 @@
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
                           </mat-form-field>
-                          <button mat-raised-button type="submit" class="btn">Login</button>
+                          <button mat-raised-button type="submit" [mat-dialog-close]="true" (click)="login()" class="btn">Login</button>
                       </form>
                 </mat-tab>
                 <mat-tab label="SIGNUP">
@@ -42,7 +42,7 @@
                         <input matInput placeholder="Phone Number" [formControl]="phoneNo" matInput required />
                         <mat-error *ngIf="phoneNo.invalid">{{getErrorMessage()}}</mat-error>
                       </mat-form-field>
-                      <button mat-raised-button type="submit" class="btn">Sign Up</button>
+                      <button mat-raised-button type="submit" [mat-dialog-close]="true" (click)="register()" class="btn">Sign Up</button>
                   </form></mat-tab>
             </mat-tab-group>
         </div>
