@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { UserServiceService } from 'src/app/service/userservice/user-service.service';
 
 @Component({
   selector: 'app-user-sign-up-login',
@@ -32,9 +33,47 @@ export class UserSignUpLoginComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  constructor() { }
+  constructor(private user : UserServiceService) { }
 
   ngOnInit(): void {
+  }
+
+  register(){
+    if(this.fullName.valid && this.email.valid && this.password.valid && this.phoneNo.valid){
+
+      let reqObj = {
+        fullName : this.fullName.value,
+        email : this.email.value,
+        password : this.password.value,
+        phone : this.phoneNo.value
+      }
+
+      this.user.register(reqObj).subscribe((res) => {
+        console.log(res)
+      },(error) => {
+        console.log(error)
+      })
+    }
+  }
+
+  login(){
+    if(this.email.valid && this.password.valid){
+
+      let arr = [] as any;
+      let reqObj = {
+        email : this.email.value,
+        password : this.password.value
+      }
+
+      this.user.login(reqObj).subscribe((res) => {
+        console.log(res)
+        arr = res
+        console.log(arr.result.accessToken)
+        localStorage.setItem('userToken',arr.result.accessToken)
+      },(error) => {
+        console.log(error)
+      })
+    }
   }
 
 }
