@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
+import { UserServiceService } from 'src/app/service/userservice/user-service.service';
 
 interface Sort {
   value: string;
@@ -15,7 +16,7 @@ export class UserDisplayComponent implements OnInit {
   selectedValue: string;
 
   bookArray = [] as any
-  constructor(private admin : AdminserviceService) { }
+  constructor(private admin : AdminserviceService,private user : UserServiceService) { }
 
   sorts: Sort[] = [
     {value: 'lowtohigh', viewValue: 'Price: Low to High'},
@@ -36,6 +37,23 @@ export class UserDisplayComponent implements OnInit {
       this.bookArray = arr.result;
     },(error)=>{
       console.log(error);
+    })
+  }
+
+  addToCart(data){
+    console.log(data);
+
+    let productId = data._id;
+
+    let reqObj = {
+      quantity : 1
+    }
+    console.log(productId);
+
+    this.user.addProduct(productId,reqObj).subscribe((res) => {
+      console.log(res)
+    },(error) => {
+      console.log(error)
     })
   }
 
