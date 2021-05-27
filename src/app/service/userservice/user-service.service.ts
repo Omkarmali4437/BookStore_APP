@@ -34,4 +34,8 @@ export class UserServiceService {
   getCartItem(){
     return this.http.get('get_cart_items',this.options)
   }
+
+  addToWishlist(id : any, data: any){
+    return this.http.post('add_wish_list/'+id,data,this.options)
+  }
 }

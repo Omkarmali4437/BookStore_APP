@@ -57,4 +57,18 @@ export class UserDisplayComponent implements OnInit {
     })
   }
 
+  addToWishList(data){
+    let productId = data._id;
+
+    let reqObj = {
+      quantity : 1
+    }
+
+    this.user.addToWishlist(productId,reqObj).subscribe((res) => {
+      console.log(res);
+    },(error) => {
+      console.log(error);
+    })
+  }
+
 }
