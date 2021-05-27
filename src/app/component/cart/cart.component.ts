@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from 'src/app/service/userservice/user-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,9 +11,12 @@ export class CartComponent implements OnInit {
   show = 1;
   show1 = 0;
   show2 = 1;
-  constructor() { }
+  constructor(private user : UserServiceService) { }
+
+  cartArray = [] as any;
 
   ngOnInit(): void {
+    this.displayItems()
   }
 
   display(num){
@@ -22,5 +26,17 @@ export class CartComponent implements OnInit {
   displaynext(){
     this.show1 += this.show;
     this.show2 -= 1;
+  }
+
+  displayItems(){
+    let arr = [] as any
+    this.user.getCartItem().subscribe((res) => {
+      console.log(res)
+      arr = res
+      this.cartArray = arr.result
+      console.log(this.cartArray);
+    },(error) =>{
+      console.log(error)
+    })
   }
 }
