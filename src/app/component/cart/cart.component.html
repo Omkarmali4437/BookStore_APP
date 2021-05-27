@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class="containtner">
-    <div class="place">
-        <div class="cardbox" fxLayoutAlign="start center">
-            My card(1)
+    <div class="place" >
+        <div class="cardbox" fxLayoutAlign="start center" >
+            My card({{length}})
         </div>
         <div fxLayout="row wrap" *ngFor="let cart of cartArray">
             <div class="book">

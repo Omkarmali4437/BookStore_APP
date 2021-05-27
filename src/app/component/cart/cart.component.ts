@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
   constructor(private user : UserServiceService) { }
 
   cartArray = [] as any;
+  length = 0;
 
   ngOnInit(): void {
     this.displayItems()
@@ -33,7 +34,9 @@ export class CartComponent implements OnInit {
     this.user.getCartItem().subscribe((res) => {
       console.log(res)
       arr = res
+      this.length = arr.result.length;
       this.cartArray = arr.result
+      console.log(this.length);
       console.log(this.cartArray);
     },(error) =>{
       console.log(error)
