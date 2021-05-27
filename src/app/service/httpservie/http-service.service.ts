@@ -22,4 +22,6 @@ export class HttpServiceService {
   delete(url: any,token : any){
     return this.httpClient.delete(this.baseUrl+url,token);
   }
+
 }
+
