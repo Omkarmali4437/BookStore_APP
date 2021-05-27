@@ -43,6 +43,8 @@ export class UserSignUpLoginComponent implements OnInit {
   register(){
     if(this.fullName.valid && this.email.valid && this.password.valid && this.phoneNo.valid){
 
+      let arr = [] as any;
+
       let reqObj = {
         fullName : this.fullName.value,
         email : this.email.value,
@@ -52,9 +54,11 @@ export class UserSignUpLoginComponent implements OnInit {
 
       this.user.register(reqObj).subscribe((res) => {
         console.log(res)
-        this._snackBar.open("Registered SuccessFully", "Cancel");
+        arr = res
+        this._snackBar.open(arr.message, "Cancel");
       },(error) => {
         console.log(error)
+        this._snackBar.open(arr.message, "Cancel");
       })
     }
   }
@@ -72,10 +76,12 @@ export class UserSignUpLoginComponent implements OnInit {
         console.log(res)
         arr = res
         console.log(arr.result.accessToken)
-        this._snackBar.open("Login SuccessFull", "Cancel");
+        this._snackBar.open(arr.message, "Cancel");
         localStorage.setItem('userToken',arr.result.accessToken)
       },(error) => {
         console.log(error)
+        this._snackBar.open(arr.message, "Cancel");
+
       })
     }
   }

@@ -46,6 +46,7 @@ export class UserDisplayComponent implements OnInit {
     console.log(data);
 
     let productId = data._id;
+    let arr = []  as any;
 
     let reqObj = {
       quantity : 1
@@ -54,15 +55,17 @@ export class UserDisplayComponent implements OnInit {
 
     this.user.addProduct(productId,reqObj).subscribe((res) => {
       console.log(res)
-      this._snackBar.open("Added to Cart", "Cancel");
-
+      arr = res
+      this._snackBar.open(arr.message, "Cancel");
     },(error) => {
       console.log(error)
+      this._snackBar.open(arr.message, "Cancel");
     })
   }
 
   addToWishList(data){
     let productId = data._id;
+    let arr = [] as any
 
     let reqObj = {
       quantity : 1
@@ -70,9 +73,11 @@ export class UserDisplayComponent implements OnInit {
 
     this.user.addToWishlist(productId,reqObj).subscribe((res) => {
       console.log(res);
-      this._snackBar.open("Added to WishList", "Cancel");
+      arr  =res
+      this._snackBar.open(arr.message, "Cancel");
     },(error) => {
       console.log(error);
+      this._snackBar.open(arr.message, "Cancel");
     })
   }
 
