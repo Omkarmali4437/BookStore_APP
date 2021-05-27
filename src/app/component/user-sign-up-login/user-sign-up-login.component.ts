@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { UserServiceService } from 'src/app/service/userservice/user-service.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-user-sign-up-login',
@@ -33,7 +35,7 @@ export class UserSignUpLoginComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  constructor(private user : UserServiceService) { }
+  constructor(private user : UserServiceService,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -50,6 +52,7 @@ export class UserSignUpLoginComponent implements OnInit {
 
       this.user.register(reqObj).subscribe((res) => {
         console.log(res)
+        this._snackBar.open("Registered SuccessFully", "Cancel");
       },(error) => {
         console.log(error)
       })
@@ -69,6 +72,7 @@ export class UserSignUpLoginComponent implements OnInit {
         console.log(res)
         arr = res
         console.log(arr.result.accessToken)
+        this._snackBar.open("Login SuccessFull", "Cancel");
         localStorage.setItem('userToken',arr.result.accessToken)
       },(error) => {
         console.log(error)

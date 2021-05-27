@@ -30,6 +30,8 @@ import { OrderPlacedComponent } from './component/order-placed/order-placed.comp
 import { CartComponent } from './component/cart/cart.component';
 import { UserSignUpLoginComponent } from './component/user-sign-up-login/user-sign-up-login.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatCardModule,
     MatDialogModule,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule
 ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminserviceService } from 'src/app/service/adminservice/adminservice.service';
 import { UserServiceService } from 'src/app/service/userservice/user-service.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 interface Sort {
   value: string;
@@ -16,7 +18,7 @@ export class UserDisplayComponent implements OnInit {
   selectedValue: string;
 
   bookArray = [] as any
-  constructor(private admin : AdminserviceService,private user : UserServiceService) { }
+  constructor(private admin : AdminserviceService,private user : UserServiceService,private _snackBar: MatSnackBar) { }
 
   sorts: Sort[] = [
     {value: 'lowtohigh', viewValue: 'Price: Low to High'},
@@ -52,6 +54,8 @@ export class UserDisplayComponent implements OnInit {
 
     this.user.addProduct(productId,reqObj).subscribe((res) => {
       console.log(res)
+      this._snackBar.open("Added to Cart", "Cancel");
+
     },(error) => {
       console.log(error)
     })
@@ -66,6 +70,7 @@ export class UserDisplayComponent implements OnInit {
 
     this.user.addToWishlist(productId,reqObj).subscribe((res) => {
       console.log(res);
+      this._snackBar.open("Added to WishList", "Cancel");
     },(error) => {
       console.log(error);
     })
