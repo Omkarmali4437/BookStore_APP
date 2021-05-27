@@ -57,24 +57,13 @@
 }
 
 .cartimg{
-    /* margin-left: 10px;
-    margin-right: 30px; */
     height: 20px;
 }
 
 .carttext{
-    top: 41px;
-    left: 1064px;
-    width: 31px;
-    height: 13px;
     text-align: left;
     font: normal normal normal 10px/13px Roboto;
     letter-spacing: 0.45px;
     color: #FFFFFF;
     opacity: 1;
 }
-
-.profilediv{
-    /* margin-right: 30px; */
-}
-
