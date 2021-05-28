@@ -35,7 +35,7 @@ export class UserDisplayComponent implements OnInit {
     this.admin.getBooks().subscribe((res)=>{
       console.log(res);
       arr = res;
-      console.log(arr.result);
+      console.log("id",arr.result.product_id);
       this.bookArray = arr.result;
     },(error)=>{
       console.log(error);

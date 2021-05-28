@@ -31,7 +31,7 @@ import { CartComponent } from './component/cart/cart.component';
 import { UserSignUpLoginComponent } from './component/user-sign-up-login/user-sign-up-login.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDialogModule,
     MatSelectModule,
     MatTabsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSliderModule
 ],
   providers: [],
   bootstrap: [AppComponent]

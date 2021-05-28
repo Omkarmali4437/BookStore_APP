@@ -1,9 +1,15 @@
+.main-container{
+    flex: 1;
+}
+
+
 .container{
     border: 2px black;
     border-radius: 5px;
     width: 80%;
     height: 100%;
     padding: 20px 10px 10px 10px;
+    flex: 1;
 }
 
 .content-card{
