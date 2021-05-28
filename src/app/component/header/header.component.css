@@ -44,6 +44,10 @@
     height: 20px;
 }
 
+.profileimg:hover{
+    cursor: pointer;
+}
+
 .profiletext{
     top: 41px;
     left: 1064px;
@@ -58,6 +62,10 @@
 
 .cartimg{
     height: 20px;
+}
+
+.cartimg:hover{
+    cursor: pointer;
 }
 
 .carttext{
