@@ -23,5 +23,8 @@ export class HttpServiceService {
     return this.httpClient.delete(this.baseUrl+url,token);
   }
 
+  put(url : any,data : any , token : any){
+    return this.httpClient.put(this.baseUrl+url,data,token)
+  }
 }
 
