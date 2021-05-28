@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from 'src/app/service/userservice/user-service.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,8 @@ export class CartComponent implements OnInit {
   show = 1;
   show1 = 0;
   show2 = 1;
-  constructor(private user : UserServiceService) { }
+
+  constructor(private user : UserServiceService,private _snackBar: MatSnackBar) { }
 
   cartArray = [] as any;
   length = 0;
@@ -39,6 +41,20 @@ export class CartComponent implements OnInit {
       console.log(this.length);
       console.log(this.cartArray);
     },(error) =>{
+      console.log(error)
+    })
+  }
+
+  deleteBook(data : any){
+    console.log(data);
+    let id  = data._id;
+    console.log(id);
+    
+    this.user.deleteCartItem(id).subscribe((res : any) => {
+      console.log(res)
+      this._snackBar.open(res.message, "Cancel");
+      this.displayItems()
+    },(error) => {
       console.log(error)
     })
   }
