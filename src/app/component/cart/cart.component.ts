@@ -80,8 +80,9 @@ export class CartComponent implements OnInit {
 
       console.log(reqObj);
 
-      this.user.editDetails(reqObj).subscribe((res) => {
+      this.user.editDetails(reqObj).subscribe((res : any) => {
         console.log(res)
+        this._snackBar.open(res.message, "Cancel");
       },(error) => {
         console.log(error)
       })

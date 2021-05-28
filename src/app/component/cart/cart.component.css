@@ -80,6 +80,10 @@
     cursor: pointer;
 }
 
+.delete{
+    margin-left: 10px;
+}
+
 .mat-radio-button{
     margin-left: 30px;
     margin-top: 20px;
