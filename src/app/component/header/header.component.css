@@ -29,6 +29,10 @@
     opacity: 1;
 }
 
+.text:hover{
+    cursor: pointer;
+}
+
 .search{
     top: 14px;
     left: 334px;
@@ -74,4 +78,45 @@
     letter-spacing: 0.45px;
     color: #FFFFFF;
     opacity: 1;
+}
+
+@media screen and (max-width: 470px) {
+    
+    .search{
+        display: none;
+    }
+}
+@media screen and (max-width: 620px) {
+    .search{
+        width: 50px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .search{
+        display: none;
+    }
+    .main-container{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 800px) {
+    
+    .search{
+        width: 100px;
+    }
+}
+@media screen and (max-width: 350px) {
+    
+    .image{
+        display: none;
+    }
+    .main-container{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 200px) {
+    
+    .text{
+        display: none;
+    }
 }

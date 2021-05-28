@@ -79,3 +79,30 @@
     background: #A03037;
     color: white;
 }
+
+@media screen and (max-width: 470px) {
+    
+    .sort{
+        display: none;
+    }
+}
+@media screen and (max-width: 620px) {
+    
+    .sort{
+        width: 100px;
+    }
+}
+@media screen and (max-width: 400px) {
+    
+    .sort{
+        display: none;
+    }
+}
+@media screen and (max-width: 800px) {
+    
+    .sort{
+        width: 80px;
+    }
+}
+
+
