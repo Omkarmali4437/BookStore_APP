@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from 'src/app/service/userservice/user-service.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,10 +15,19 @@ export class CartComponent implements OnInit {
   show1 = 0;
   show2 = 1;
 
-  constructor(private user : UserServiceService,private _snackBar: MatSnackBar) { }
+  constructor(private user : UserServiceService,private _snackBar: MatSnackBar,private router : Router) { }
 
   cartArray = [] as any;
   length = 0;
+
+  name = new FormControl('',[Validators.required])
+  phoneNo = new FormControl('',[Validators.required])
+  pincode = new FormControl('',[Validators.required])
+  locality = new FormControl('',[Validators.required])
+  address = new FormControl('',[Validators.required])
+  city = new FormControl('',[Validators.required])
+  state = new FormControl('',[Validators.required])
+  type = new FormControl('',[Validators.required])
 
   ngOnInit(): void {
     this.displayItems()
@@ -24,11 +35,6 @@ export class CartComponent implements OnInit {
 
   display(num){
     this.show += num;
-  }
-  
-  displaynext(){
-    this.show1 += this.show;
-    this.show2 -= 1;
   }
 
   displayItems(){
@@ -57,5 +63,53 @@ export class CartComponent implements OnInit {
     },(error) => {
       console.log(error)
     })
+  }
+
+
+  editDetails(){
+    this.show1 += this.show;
+    this.show2 -= 1;
+    if(this.address.valid && this.type.valid && this.city.valid && this.state.valid){
+
+      let reqObj = {
+        addressType : this.type.value,
+        fullAddress : this.address.value,
+        city : this.city.value,
+        state : this.state.value
+      }
+
+      console.log(reqObj);
+
+      this.user.editDetails(reqObj).subscribe((res) => {
+        console.log(res)
+      },(error) => {
+        console.log(error)
+      })
+    }
+  }
+
+  addOrder(){
+    console.log(this.cartArray)
+
+    for(let cart of this.cartArray){
+      let reqObject = {
+        orders: [
+          {
+            product_id: cart._id,
+            product_name: cart.bookName,
+            product_quantity: cart.quantity,
+            product_price: cart.price
+          }
+        ]
+      }
+
+      console.log(reqObject)
+      this.user.addOrder(reqObject).subscribe((res) => {
+        console.log(res)
+        this.router.navigate(['/orderPlaced'])
+      },(error) => {
+        console.log(error)
+      })
+    }
   }
 }
