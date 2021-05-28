@@ -32,6 +32,7 @@ import { UserSignUpLoginComponent } from './component/user-sign-up-login/user-si
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatSelectModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatSliderModule
+    MatSliderModule,
+    MatRadioModule
 ],
   providers: [],
   bootstrap: [AppComponent]
