@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-placed',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderPlacedComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 
+  route(){
+    this.router.navigate(['/userdashboard'])
+  }
 }
